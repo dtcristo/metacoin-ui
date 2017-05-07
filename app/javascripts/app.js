@@ -41,5 +41,12 @@ $(function(){
   function getBalance(acc) {
     return meta.getBalance.call(acc).toNumber();
   }
-  $("button").click(getBalance);
+
+  function sendCoin() {
+    var amount = $("#send-meta-amount").val();
+    var destination = $("#send-meta-address").val();
+    meta.sendCoin(destination, amount, {from: account})
+  }
+
+  $(".send-meta__button").click(sendCoin);
 });
