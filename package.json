@@ -1,16 +1,8 @@
 {
   "name": "blockpoll",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "main.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "truffle-default-builder": "^2.0.0"
   }
