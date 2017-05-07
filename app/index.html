@@ -12,7 +12,22 @@
     <script src="/app.js"></script>
 
   </head>
-  <body onLoad="main()">
-    <button onClick="getBalance()">Button</button>
+  <body>
+    <label for="account-switcher">Account:</label>
+    <select class="" id="account-switcher" name="account-switcher"></select>
+
+    <span>Balance: <span class="balance"></span></span>
+    
+    <div class="send-meta">
+      <h2 class="send-meta__title">Send MetaCoin</h2>
+
+      <label for="send-meta-address">Address</label>
+      <input class="send-meta__input" id="send-meta-address" type="text" name="address" value="" placeholder="E.g. 0x0359b919f373b18e29ff92c1687990549e51875a">
+
+      <label for="send-meta-amount">Address</label>
+      <input class="send-meta__input" id="send-meta-amount" type="text" name="amount" value="">
+
+      <button class="send-meta__button">Button</button>
+    </div>
   </body>
 </html>
