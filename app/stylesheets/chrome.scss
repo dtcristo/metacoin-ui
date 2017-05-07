@@ -1,15 +1,24 @@
 body{
-  background: #f1f1f1;
+  background: #e1d8ef;
   color: #333;
   font-family: monospace;
+  font-size: 16px;
 }
-.send-meta{
+.container{
+  padding: 30px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.content{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   align-content: center;
-  padding: 1em;
+  padding: 1em 2em;
+  background: #fff;
+  border: 1px solid #333;
+  margin: 1em 0;
 }
 button{
   font-size: 16px;
@@ -22,8 +31,12 @@ button{
 }
 label{
   margin: 2em 0.5em 0.5em;
+  &:first-child{margin-top: 0;}
 }
 select, input{
+  box-sizing: border-box;
   width: 100%;
-  padding: 0.4em;
+  padding: 0.6em;
+  font-size: 16px;
+  font-family: monospace;
 }

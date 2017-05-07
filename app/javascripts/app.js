@@ -25,22 +25,22 @@ $(function(){
   });
 
   for(let account of accounts){
-    $("#account-switcher").append(`<option value="${account}">${account}</option>`);
+    $("#account-select").append(`<option value="${account}">${account}</option>`);
   }
 
   function onMetaBalanceChange() {
     var bal = getMetaBalance(account);
-    $(".meta-coin-balance").text(bal);
+    $(".account-balances__meta-coin").text(bal);
   }
 
   function onEtherBalanceChange() {
     var bal = getEtherBalance(account);
-    $(".ether-balance").text(bal);
+    $(".account-balances__ether").text(bal);
   }
 
 
   function onAccountChange() {
-    account = $("#account-switcher").val();
+    account = $("#account-select").val();
     onMetaBalanceChange();
     onEtherBalanceChange();
   }
