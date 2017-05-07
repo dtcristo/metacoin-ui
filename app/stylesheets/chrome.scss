@@ -3,6 +3,10 @@ body{
   color: #333;
   font-family: monospace;
   font-size: 16px;
+  line-height: 1.4em;
+}
+h2{
+  margin: 0 0 1em;
 }
 .container{
   padding: 30px;
@@ -15,28 +19,85 @@ body{
   justify-content: center;
   align-items: flex-start;
   align-content: center;
-  padding: 1em 2em;
+  padding: 2em;
   background: #fff;
   border: 1px solid #333;
   margin: 1em 0;
 }
-button{
+.button{
   font-size: 16px;
-  border: 1px solid #333;
+  border: 1px solid #999;
   background: #f8f8f8;
-  padding: 0.4em 0.8em;
+  padding: 0.7em 1.2em;
   color: #333;
-  margin: 1em 0;
+  margin: 2em 0 0;
   font-family: monospace;
+  align-self: flex-end;
+  cursor: pointer;
+
+  .loading{display: none;}
+}
+.button[disabled]{
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 label{
-  margin: 2em 0.5em 0.5em;
-  &:first-child{margin-top: 0;}
+  margin-bottom: 1em;
+  font-weight: bold;
+  display: block;
 }
 select, input{
   box-sizing: border-box;
+  display: block;
   width: 100%;
   padding: 0.6em;
   font-size: 16px;
   font-family: monospace;
+  border: 1px solid #999;
+}
+input[type="number"]{
+  -moz-appearance:textfield;
+}
+.input-list{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: block;
+  width: 100%;
+}
+.input-list__item{
+  margin-bottom: 2em;
+
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+.account-balances{
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  span{width: 45%;}
+}
+.account-balances__value{
+}
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.loader-1{
+  animation: loading 0.6s infinite;
+  animation-delay: 0.2s;
+}
+.loader-2{
+  animation: loading 0.6s infinite;
+  animation-delay: 0.4s;
+}
+.loader-3{
+  animation: loading 0.6s infinite;
+  animation-delay: 0.6s;
 }

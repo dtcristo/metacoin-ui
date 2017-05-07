@@ -15,26 +15,45 @@
     <div class="container">
       <h1>MetaCoin</h1>
       <div class="content account-switcher">
-        <label for="account-select">Account:</label>
+        <label for="account-select">Account</label>
         <select class="account-switcher__select" id="account-select" name="account-switcher-select"></select>
       </div>
 
       <div class="content account-balances">
-        <span>MetaCoin Balance: <span class="account-balances__meta-coin"></span></span>
-        <span>Ether Balance: <span class="account-balances__ether"></span></span>
+        <span class="account-balances__label"><strong>MetaCoin Balance:</strong></span>
+        <span class="account-balances__value">
+          <span class="loading">
+            <span class="loader-1">.</span><span class="loader-2">.</span><span class="loader-3">.</span>
+          </span>
+          <span class="account-balances__meta-coin"></span>
+        </span>
+
+        <span class="account-balances__label"><strong>Ether Balance:</strong></span>
+        <span class="account-balances__value">
+          <span class="loading">
+            <span class="loader-1">.</span><span class="loader-2">.</span><span class="loader-3">.</span>
+          </span>
+          <span class="account-balances__ether"></span>
+        </span>
       </div>
 
-      <div class="content send-meta">
+      <form class="content send-meta">
         <h2 class="send-meta__title">Send MetaCoin</h2>
+        <ul class="input-list">
+          <li class="input-list__item">
+            <label for="send-meta-address">Address</label>
+            <input class="send-meta__input" id="send-meta-address" type="text" name="address" value="" placeholder="e.g. 0x0359b919f373b18e29ff92c1687990549e51875a" required>
+          </li>
+          <li class="input-list__item">
+            <label for="send-meta-amount">Amount</label>
+            <input class="send-meta__input" id="send-meta-amount" type="number" min="0" name="amount" required>
+          </li>
+        </ul>
 
-        <label for="send-meta-address">Address</label>
-        <input class="send-meta__input" id="send-meta-address" type="text" name="address" value="" placeholder="Eg. 0x0359b919f373b18e29ff92c1687990549e51875a">
-
-        <label for="send-meta-amount">Amount</label>
-        <input class="send-meta__input" id="send-meta-amount" type="text" name="amount" value="">
-
-        <button class="send-meta__button">Send</button>
-      </div>
+        <button class="button send-meta__button" type="submit"><span class="default">Send</span> <span class="loading">
+          <span class="loader-1">.</span><span class="loader-2">.</span><span class="loader-3">.</span>
+        </span></button>
+      </form>
     </div>
   </body>
 </html>
