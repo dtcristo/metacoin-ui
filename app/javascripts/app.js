@@ -12,8 +12,15 @@ $(function(){
   event.watch(function(error, result){
     if (!error){
       if (result.args._from === account || result.args._to === account){
-        onBalanceChange();
+        onMetaBalanceChange();
       }
+    }
+  });
+
+  var filter = web3.eth.filter('latest');
+  filter.watch(function(error, result){
+    if (!error){
+      onEtherBalanceChange();
     }
   });
 
@@ -21,16 +28,21 @@ $(function(){
     $("#account-switcher").append(`<option value="${account}">${account}</option>`);
   }
 
-  function onBalanceChange() {
-    var bal = getBalance(account);
-    console.log(bal);
-    $(".balance").text(bal);
+  function onMetaBalanceChange() {
+    var bal = getMetaBalance(account);
+    $(".meta-coin-balance").text(bal);
   }
+
+  function onEtherBalanceChange() {
+    var bal = getEtherBalance(account);
+    $(".ether-balance").text(bal);
+  }
+
 
   function onAccountChange() {
     account = $("#account-switcher").val();
-    console.log(account);
-    onBalanceChange();
+    onMetaBalanceChange();
+    onEtherBalanceChange();
   }
 
   onAccountChange();
@@ -38,8 +50,12 @@ $(function(){
   $("#account-switcher").on('change', onAccountChange);
 
 
-  function getBalance(acc) {
+  function getMetaBalance(acc) {
     return meta.getBalance.call(acc).toNumber();
+  }
+
+  function getEtherBalance(acc) {
+    return web3.fromWei(web3.eth.getBalance(acc), "ether").toNumber();
   }
 
   function sendCoin() {
