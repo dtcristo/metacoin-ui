@@ -6,7 +6,7 @@ An [Ethereum](https://ethereum.org/) Ðapp built around the MetaCoin example con
 
 ## Installation
 
-Install [testrpc](https://github.com/ethereumjs/testrpc) a tool used to run a development only Ethereum blockchain.
+Install [testrpc](https://github.com/ethereumjs/testrpc), a tool used to run a development only Ethereum blockchain.
 
     $ npm install -g ethereumjs-testrpc
 
@@ -54,7 +54,7 @@ Contracts are compiled and deployed using [Truffle](http://truffleframework.com/
 
     $ npm install -g truffle
 
-Compile and deploy the contracts and observe the output
+Compile and deploy the contracts with `truffle migrate` and observe the output.
 
 ```
 $ truffle migrate
@@ -92,4 +92,9 @@ Install any dependencies and serve the application with the following.
     $ npm install
     $ truffle serve
 
-Your MetaCoin UI should be available at [localhost:8080](http://localhost:8080/).
+The MetaCoin UI should be available at [localhost:8080](http://localhost:8080/).
+
+## Credits
+
+* All credit for the MetaCoin contract goes to the Truffle team.
+* The MetaCoin UI itself was developed by [BrendanTimmons](https://github.com/BrendanTimmons) and [dtcristo](https://github.com/dtcristo).
