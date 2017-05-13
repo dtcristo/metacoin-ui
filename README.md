@@ -1,6 +1,6 @@
 # MetaCoin UI
 
-An [Ethereum](https://ethereum.org/) Ðapp built around the MetaCoin example contract provided with [Truffle](http://truffleframework.com/)'s `truffle init`. The UI allows the user to send a balance of MetaCoins to the desired address. This project is just a demonstration of a working Ðapp and should not be used for any production cryptocurrency needs.
+An [Ethereum](https://ethereum.org/) Ðapp built around the MetaCoin example contract provided by [Truffle](http://truffleframework.com/)'s `truffle init`. The UI allows the user to send a balance of MetaCoins to the desired address. This project is just a demonstration of a working Ðapp and should not be used for any production cryptocurrency needs.
 
 ![Screenshot](https://raw.github.com/dtcristo/metacoin-ui/master/images/screenshot.png)
 
