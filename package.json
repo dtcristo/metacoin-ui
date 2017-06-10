@@ -1,9 +1,25 @@
 {
   "name": "metacoin-ui",
-  "version": "0.1.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Describe metacoin-ui here",
+  "private": true,
+  "scripts": {
+    "build": "nwb build-web-app",
+    "clean": "nwb clean-app",
+    "start": "nwb serve-web-app --reload",
+    "test": "nwb test",
+    "test:coverage": "nwb test --coverage",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mithril": "^1.1.1",
+    "nwb": "^0.16.3",
+    "nwb-sass": "^0.8.0",
+    "truffle-contract": "^2.0.1",
+    "web3": "^0.19.0"
+  },
+  "author": "",
   "license": "MIT",
-  "dependencies": {
-    "truffle-default-builder": "^2.0.0"
-  }
+  "repository": ""
 }
