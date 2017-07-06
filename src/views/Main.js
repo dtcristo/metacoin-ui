@@ -10,15 +10,44 @@ import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 window.MetaCoin = contract(metacoin_artifacts);
 
-let accounts;
-let account;
+function metaModel(){
+  return {
+    accounts: []
+  }
+}
+
+const actions = {
+  fetchAccounts(model){
+    web3.eth.getAccounts(function(err, accs) {
+      if (err != null) {
+        alert("There was an error fetching your accounts.");
+        return;
+      }
+
+      if (accs.length == 0) {
+        alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
+        return;
+      }
+
+      model.accounts = accs || [];
+      console.log(model.accounts);
+    });
+  },
+  switchAccounts(){
+    // TOOD swap accounts logic here.
+  }
+}
 
 const accountSwitcherUI = {
-  view(){
+  view({ attrs }){
+    console.log(attrs);
+    // issue: this doesn't get called at the right time... so the array is empty.
     return (
       m(".content.account-switcher", [
         m("label[for='account-select']", "Account"),
-        m("select.account-switcher__select[id='account-select'][name='account-switcher-select']")
+        m("select.account-switcher__select[id='account-select'][name='account-switcher-select']", [
+          // TODO map over accounts and create options
+        ])
       ])
     );
   }
@@ -67,7 +96,7 @@ const transactionUI = {
         m("ul.input-list", [
           m("li.input-list__item", [
             m("label[for='send-meta-address']", "Address"),
-            m("input.send-meta__input[id='send-meta-address'][name='address'][placeholder='e.g. 0x0359b919f373b18e29ff92c1687990549e51875a'][required=''][type='text'][value='']")
+            m("input.send-meta__input[id='send-meta-address'][name='address'][placeholder='e.g. 0x0359b919f373b18e29ff92c1687990549e51875a'][required=''][type='text']")
           ]),
           m("li.input-list__item", [
             m("label[for='send-meta-amount']", "Amount"),
@@ -85,30 +114,19 @@ const transactionUI = {
 
 export default class Main {
   view(){
+    const model = metaModel();
+
+    window.MetaCoin.setProvider(web3.currentProvider);
+    actions.fetchAccounts(model);
+
     return m(".container", [
       m("h1", "MetaCoin"),
-      m(accountSwitcherUI),
+      m(accountSwitcherUI, {
+        items: model.accounts,
+        action: actions.switchAccounts
+      }),
       m(accountBalancesUI),
       m(transactionUI)
     ]);
-  }
-
-  oninit(){
-    console.log(MetaCoin);
-    window.MetaCoin.setProvider(web3.currentProvider);
-    web3.eth.getAccounts(function(err, accs) {
-      if (err != null) {
-        alert("There was an error fetching your accounts.");
-        return;
-      }
-
-      if (accs.length == 0) {
-        alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
-        return;
-      }
-
-      accounts = accs;
-      account = accounts[0];
-    });
   }
 }
