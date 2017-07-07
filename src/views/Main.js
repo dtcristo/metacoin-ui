@@ -20,8 +20,9 @@ const actions = {
   fetchAccounts(model){
     model.accounts = web3.eth.accounts;
   },
-  switchAccounts(){
-    // TOOD swap accounts logic here.
+  switchAccounts(account){
+    console.log(account)
+    // do stuff with the new account
   }
 }
 
@@ -30,9 +31,13 @@ const accountSwitcherUI = {
     return (
       m(".content.account-switcher", [
         m("label[for='account-select']", "Account"),
-        m("select.account-switcher__select[id='account-select'][name='account-switcher-select']", [
+        m("select.account-switcher__select[id='account-select'][name='account-switcher-select']", {
+          onchange: function(){
+            attrs.action(this.value);
+          }
+        }, [
           attrs.items.map((account) =>
-            m("option", account)
+            m("option[value='"+ account +"']", account)
           )
         ])
       ])
